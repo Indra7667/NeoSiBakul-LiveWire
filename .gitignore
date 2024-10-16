@@ -16,7 +16,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.cmd generate Laravel Component.cmd
 .cmd generate Volt Component.cmd
 .cmdrundev.cmd
 .cmdserve.cmd
 .cmdserve-host.cmd
+xampp-control.exe - Shortcut

@@ -106,14 +106,13 @@ if (!$placeholder) {
                 </h4>
             @endif
             <p class="w-full text-center mt-1 h-max flex justify-center">
-                <!-- how do I add child to a b:include? -->
                 {!! $child !!}
             </p>
         </div>
     </div>
     <div class="m-4 bottom-0">
         @if ($buttonConfig['use'])
-            <hr />
+            <hr/>
             <div class="flex justify-center">
                 @include('components.micro.genericButton', $buttonConfig)
             </div>

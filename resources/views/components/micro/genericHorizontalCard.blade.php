@@ -69,7 +69,7 @@ if ($btnCard) {
 empty($placeholder) ? ($placeholder = true) : null;
 empty($title) ? ($title = '<div class="bg-gray-300 h-[1rem] w-[50%] animate-pulse"></div>') : null;
 empty($buttonConfig) ? ($buttonConfig = defaultCardBtConfig) : null;
-empty($child) ? ($child = '<div class="bg-gray-300 h-[1rem] w-full animate-pulse"></div>') : null;
+empty($slot) ? ($slot = '<div class="bg-gray-300 h-[1rem] w-full animate-pulse"></div>') : null;
 
 if (!$placeholder) {
     !isset($cardImgUse) ? ($cardImgUse = defaultCardImgConfig['use']) : null;
@@ -85,7 +85,7 @@ if (!$placeholder) {
     }
 @endphp
 
-<div class="block bg-{{ $bg }} rounded-xl" wire:key="Card-{{ $title }}">
+<div class="{{$addClass ?? ''}} p-2 block bg-{{ $bg }} rounded-xl" wire:key="Card-{{ $title }}">
     @if ($btnCard)
         <a href="{{ $cardHref }}" {{ $addAttr }} class="group hover:scale-125">
     @endif
@@ -107,7 +107,7 @@ if (!$placeholder) {
                 @endif
             </div>
         </div>
-        <div class="">
+        <div class="pl-1">
             <div class="block my-4">
                     @if (!empty($title))
                         <h4 class="w-full text-center font-bold text-lg flex justify-center">
@@ -115,19 +115,19 @@ if (!$placeholder) {
                         </h4>
                     @endif
                     <p class="w-full text-center mt-1 h-max flex justify-center">
-                        <!-- how do I add child to a b:include? -->
-                        {!! $child !!}
+                        {!! $slot !!}
                     </p>
             </div>
         </div>
     </div>
     <div class="m-4 bottom-0">
-        @if ($buttonConfig['use'])
+        {!!$bottomSlot!!}
+        {{-- @if ($buttonConfig['use'])
             <hr />
             <div class="flex justify-center">
                 @include('components.micro.genericButton', $buttonConfig)
             </div>
-        @endif
+        @endif --}}
     </div>
     @if ($btnCard)
         </a>
