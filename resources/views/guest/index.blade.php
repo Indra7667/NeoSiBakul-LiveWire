@@ -88,13 +88,21 @@
         <div class="w-full flex justify-center mt-4" id="layanan">
             <div class="w-[90%]">
                 <div class="block">
-                    @include('components.micro.genericH1', [
-                        'text' => 'Fasilitas Pemasaran Produk UMKM DIY',
-                    ])
+                    <x-micro.genericH1>
+                        Fasilitas Pemasaran Produk UMKM DIY
+                    </x-micro.genericH1>
                 </div>
                 <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 mt-4">
                     @foreach ($prop['fasilitas'] as $fasilitas)
-                        @include('components.micro.genericCard', $fasilitas)
+                        {{-- @include('components.micro.genericCard', $fasilitas) --}}
+                        <x-micro.genericCard bg='white' title='' :btnCard="false" :cardHref="null" addAttr='' :placeholder="true" :cardImgUse="false" :cardImg="null" :cardImgAlt="null">
+                            {{-- {{$fasilitas}} --}}
+                            <x-slot:slot_bottom>
+                                <x-micro.genericAButton fill addAttr="" addClass='' brightness='500' color='blue' href='javascript:void(0)'>
+                                    Detail
+                                </x-micro.genericAButton>
+                            </x-slot:slot_bottom>
+                        </x-micro.genericCard>
                     @endforeach
                 </div>
             </div>
@@ -102,7 +110,7 @@
         <div class="w-full flex justify-center mt-4" id="layanan">
             <livewire:components.macro.page-specific.landing.menu-tray :key="'layanan-tray'" lazy />
         </div>
-
+{{-- 
         <div class="w-full flex justify-center mt-4" id="products">
             <div class="w-[90%] bg-green-300 rounded-xl p-4">
                 <div class="block">
@@ -117,5 +125,5 @@
                 <livewire:components.macro.page-specific.landing.konsultan-carousel :key="'konsultan-component'" lazy />
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

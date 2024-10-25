@@ -16,9 +16,9 @@
     ])
 
     or:
-    <x-micro.genericButton fill addAttr="" addClass='' brightness='500' color='blue' href='javascript:void(0)'>
+    <x-micro.genericAButton fill addAttr="" addClass='' brightness='500' color='blue' href='javascript:void(0)'>
         innerHTML
-    </x-micro.genericButton>
+    </x-micro.genericAButton>
     
     if the class isn't being read, check tailwind.config.js
     make sure the class is included in the safelist

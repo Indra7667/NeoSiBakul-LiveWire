@@ -48,7 +48,9 @@ new class extends Component {
 
 <div class="w-[90%] h-max bg-gradient-to-r from-green-500 via-green-400 to-green-500 rounded-xl p-4">
     <div class="block">
-        @include('components.micro.genericH1', ['text' => 'Layanan ' . $this->selected])
+        <x-micro.genericH1>
+            layanan {{$this->selected}}
+        </x-micro.genericH1>
     </div>
     <div class="w-full flex box-border border-2 rounded-lg h-full border-black">
         <div class="bg-green-500 w-1/4 rounded-s-lg">

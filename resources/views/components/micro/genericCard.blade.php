@@ -44,6 +44,14 @@
         'cardImgAlt' => null, #if the card have image, what's the alt text?
     ])
     
+    
+    <x-micro.genericCard bg='white' title='' :btnCard="false" :cardHref="null" addAttr='' :placeholder="true" :cardImgUse="false" :cardImg="null" :cardImgAlt="null">
+        innerHTML
+        <x-slot:slot_bottom>
+        card bottom
+        </x-slot:slot_bottom>
+    </x-micro.genericCard>
+
     if the class isn't being read, check tailwind.config.js
     make sure the class is included in the safelist
 */
@@ -110,14 +118,17 @@ if (!$placeholder) {
             </p>
         </div>
     </div>
+    @if (!$slot_bottom->isEmpty())
     <div class="m-4 bottom-0">
-        @if ($buttonConfig['use'])
+        {{-- @if ($buttonConfig['use'])
             <hr/>
             <div class="flex justify-center">
                 @include('components.micro.genericButton', $buttonConfig)
             </div>
-        @endif
+        @endif --}}
+        {{$slot_bottom}}
     </div>
+    @endif
     @if ($btnCard)
         </a>
     @endif
